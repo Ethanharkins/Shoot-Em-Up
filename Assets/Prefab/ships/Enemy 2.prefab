@@ -193,6 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a04a014653b554e4db14a49ec1d47761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreValue: 300
 --- !u!1 &6471912089987548044
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,3 +242,4 @@ MonoBehaviour:
   autoShoot: 1
   shootIntervalSeconds: 2
   shootDelaySeconds: 0.1
+  isActive: 0

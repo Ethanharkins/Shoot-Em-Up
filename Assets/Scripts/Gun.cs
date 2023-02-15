@@ -10,7 +10,7 @@ public class Gun : MonoBehaviour
     public bool autoShoot = false;
 
     public float shootIntervalSeconds = 0.5f;
-    public float shootDelaySeconds = 2.0f;
+    public float shootDelaySeconds = 0.0f;
 
     float shootTimer = 0f;
 
@@ -34,7 +34,7 @@ public class Gun : MonoBehaviour
        // direction = (transform.localRotation * Vector2.right).normalized;
        if (autoShoot)
         {
-            if (delayTimer >= shootIntervalSeconds)
+            if (delayTimer >= shootDelaySeconds)
             {
                 if (shootTimer >= shootIntervalSeconds)
                 {

@@ -6,10 +6,16 @@ public class Destructable : MonoBehaviour
 {
     bool canBeDestroyed = false;
 
+    public int scoreValue = 100;
+
     // Start is called before the first frame update
     void Start()
     {
-        Level.instance.AddEnemy();
+        Level.instance.AddDestructable();
+        if (Level.instance != null)
+        {
+            
+        }
     }
 
     // Update is called once per frame
@@ -18,6 +24,7 @@ public class Destructable : MonoBehaviour
         if (transform.position.x < 17.0f && !canBeDestroyed)
         {
             canBeDestroyed = true;
+            
             Gun[] guns = transform.GetComponentsInChildren<Gun>();
 
             foreach (Gun gun in guns)
@@ -35,10 +42,13 @@ public class Destructable : MonoBehaviour
             return;
         }
 
-      Bullet bullet = collision.GetComponent<Bullet>();
-        if (bullet != null)
+        Bullet bullet = collision.GetComponent<Bullet>();
+        if (bullet != null) //&& Level.instance != null)
         {
-            if (!bullet.isEnemy) {
+           
+            if (!bullet.isEnemy)
+            {
+               //Level.instance.AddScore(scoreValue);
                 Destroy(gameObject);
                 Destroy(bullet.gameObject);
             }
@@ -47,6 +57,10 @@ public class Destructable : MonoBehaviour
 
     private void OnDestroy()
     {
-        Level.instance.RemoveEnemy();
+       // (Level.instance != null)
+       // {if 
+            Level.instance.RemoveDestructable();
+        //Level.instance.AddScore(scoreValue);
+        // }
     }
 }

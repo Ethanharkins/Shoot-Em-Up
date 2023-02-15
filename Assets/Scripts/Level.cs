@@ -2,17 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Level : MonoBehaviour
 {
     public static Level instance;
 
-    uint numEnemies = 0;
+    uint numDestructable = 0;
     bool startNextLevel = false;
     float nextLevelTimer = 3;
 
     string[] levels = { "Level1", "Level2" };
     int currentLevel = 1;
+
+    public int amountToAdd = 0;
+    int score = 0;
+    Text scoreText;
 
     private void Awake()
     {
@@ -20,6 +25,8 @@ public class Level : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+            scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
+
         }
         else
         {
@@ -30,7 +37,7 @@ public class Level : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -60,16 +67,22 @@ public class Level : MonoBehaviour
         }
     }
 
-    public void AddEnemy()
+    public void AddScore(int amountToAdd)
     {
-        numEnemies++;
+        score += amountToAdd;
+        scoreText.text = score.ToString();
+    }
+
+    public void AddDestructable()
+    {
+        numDestructable++;
 
     }
-    public void RemoveEnemy()
+    public void RemoveDestructable()
     {
-        numEnemies--;
+        numDestructable--;
 
-        if (numEnemies == 0)
+        if (numDestructable == 0)
         {
             startNextLevel = true;
         }

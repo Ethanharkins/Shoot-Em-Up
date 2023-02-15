@@ -11,6 +11,9 @@ public class Ship : MonoBehaviour
 
     float moveSpeed = 3;
 
+    int hits = 3;
+   
+
     bool moveUp;
     bool moveDown;
     bool moveLeft;
@@ -116,6 +119,23 @@ public class Ship : MonoBehaviour
 
         transform.position = pos;
     }
+
+    void ResetShip()
+    {
+        
+    }
+
+    void Hit(GameObject gameObjectHit)
+    {
+            hits--;
+            if(hits == 0)
+            {
+                ResetShip();
+            }
+            Hit(gameObjectHit);
+        
+    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
