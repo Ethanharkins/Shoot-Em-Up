@@ -15,9 +15,16 @@ public class Destructable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.x < 17f)
+        if (transform.position.x < 17.0f && !canBeDestroyed)
         {
             canBeDestroyed = true;
+            Gun[] guns = transform.GetComponentsInChildren<Gun>();
+
+            foreach (Gun gun in guns)
+            {
+                gun.isActive = true;
+            }
+
         }
     }
 
@@ -31,10 +38,7 @@ public class Destructable : MonoBehaviour
       Bullet bullet = collision.GetComponent<Bullet>();
         if (bullet != null)
         {
-            if (!bullet.isEnemy)
-            {
-
-
+            if (!bullet.isEnemy) {
                 Destroy(gameObject);
                 Destroy(bullet.gameObject);
             }

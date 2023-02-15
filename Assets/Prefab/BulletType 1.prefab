@@ -111,7 +111,7 @@ Transform:
   m_GameObject: {fileID: 6780520276207979458}
   m_LocalRotation: {x: -0.0147461975, y: -0.00014130586, z: -0.9998905, w: -0.0012203486}
   m_LocalPosition: {x: 0.12653157, y: 0.04997096, z: -0.117561564}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6780520275753259867}
@@ -130,8 +130,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aa4f54aacc4ab849846528df55c4144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 1, y: 0}
-  speed: 10
+  direction: {x: -1, y: 0}
+  speed: 5
   velocity: {x: 0, y: 0}
   isEnemy: 1
 --- !u!61 &7811663805748598446
