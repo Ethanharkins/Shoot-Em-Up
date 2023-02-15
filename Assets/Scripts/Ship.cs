@@ -53,7 +53,36 @@ public class Ship : MonoBehaviour
             move.x += moveAmount;
         }
 
+        float moveMagnitude = Mathf.Sqrt(move.x * move.x + move.y * move.y);
+        if (moveMagnitude > moveAmount)
+        {
+            float ratio = moveAmount / moveMagnitude;
+            move *= ratio;
+        }
+       // moveMagnitude = Mathf.Sqrt(move.x * move.x + move.y * move.y);
+      //  Debug.Log(moveMagnitude);
+
         pos += move;
+
+        if (pos.x <= 1.5f)
+        {
+            pos.x = 1.5f;
+        }
+
+        if (pos.x >= 16f)
+        {
+            pos.x = 16f;
+        }
+
+        if (pos.y <= 1f)
+        {
+            pos.y = 1f;
+        }
+
+        if (pos.y >= 9f)
+        {
+            pos.y = 9f;
+        }
 
         transform.position = pos;
     }
