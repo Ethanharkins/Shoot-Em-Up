@@ -9,7 +9,7 @@ public class Destructable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        LevelController.instance.AddEnemy();
     }
 
     // Update is called once per frame
@@ -43,5 +43,10 @@ public class Destructable : MonoBehaviour
                 Destroy(bullet.gameObject);
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+        LevelController.instance.ReoveEnemy();
     }
 }
