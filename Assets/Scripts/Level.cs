@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelController : MonoBehaviour
+public class Level : MonoBehaviour
 {
-    public static LevelController instance;
+    public static Level instance;
+
     uint numEnemies = 0;
     bool startNextLevel = false;
-
     float nextLevelTimer = 3;
 
-    string[] levels = { "Level-1", "Level-2" };
+    string[] levels = { "Level1", "Level2" };
     int currentLevel = 1;
 
     private void Awake()
@@ -23,7 +23,7 @@ public class LevelController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -58,13 +58,13 @@ public class LevelController : MonoBehaviour
         numEnemies++;
 
     }
-    public void ReoveEnemy()
+    public void RemoveEnemy()
     {
         numEnemies--;
 
         if (numEnemies == 0)
         {
-
+            startNextLevel = true;
         }
     }
 }
